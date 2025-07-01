@@ -1,0 +1,531 @@
+
+/* Основной контейнер профиля */
+.profile {
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+/* Заголовок страницы */
+.profile__title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Табы */
+.profile__tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.profile__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #555;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.profile__tab:hover {
+  background-color: #eee;
+}
+
+.profile__tab--active {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Контент табов */
+.profile__content {
+  background-color: #333;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Секции табов */
+.profile__section {
+  display: none;
+}
+
+.profile__section--active {
+  display: block;
+}
+
+/* Карточки фильмов */
+.profile__movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.02);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+}
+
+/* Кнопка удаления */
+.movie-card__remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff4d4f;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-card:hover .movie-card__remove {
+  display: flex;
+}
+
+/* Сообщение об отсутствии избранных фильмов */
+.profile__empty {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+}
+
+/* Блок с информацией */
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile__icon {
+  background-color: #111;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__label {
+  font-size: 14px;
+  color: #999;
+}
+
+.profile__value {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Кнопка выхода */
+.profile__logout {
+  display: inline-block;
+  margin-top: 32px;
+  color: #ff4d4f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.profile__logout:hover {
+  opacity: 0.8;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #393959;
+  padding: 18px 22px 18px 18px;
+  margin-bottom: 22px;
+  border-radius: 15px;
+  background: #2c2c2c;
+  box-shadow: 0 4px 40px 0 rgba(52, 52, 52, 0.14), 0 1.5px 8px rgba(60, 60, 60, 0.07);
+  transition: box-shadow 0.16s, background 0.18s;
+  animation: fadeIn 0.35s;
+}
+
+.review-card:hover {
+  background: #333;
+  box-shadow: 0 10px 42px 0 rgba(180, 169, 255, 0.11);
+}
+
+.review-card__content {
+  display: flex;
+  gap: 18px;
+}
+
+.review-card__image img {
+  width: 98px;
+  height: 138px;
+  object-fit: cover;
+  border-radius: 9px;
+  border: 1.5px solid #393959;
+  background: #232323;
+  box-shadow: 0 2px 10px rgba(180, 169, 255, 0.07);
+}
+
+.review-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.review-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #B4A9FF;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.18s;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-card__title:hover {
+  color: #67A5EB;
+}
+
+.review-card__rating {
+  display: inline-block;
+  margin-left: 8px;
+  color: #fff;
+  background: #67A5EB;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 7px;
+  padding: 3px 10px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 1px 4px rgba(103, 165, 235, 0.11);
+}
+
+.review-card__comment {
+  margin: 12px 0 12px 0;
+  color: #e4e2f8;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 8px 13px;
+  line-height: 1.7;
+  word-break: break-word;
+  min-height: 28px;
+}
+
+.review-card__actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.review-card__delete,
+.review-card__edit-btn {
+  background: linear-gradient(90deg, #393959 60%, #222 100%);
+  border: 1.2px solid #393959;
+  color: #B4A9FF;
+  cursor: pointer;
+  border-radius: 9px;
+  font-size: 15px;
+  padding: 7px 19px;
+  font-weight: 600;
+  transition:
+    background 0.16s,
+    color 0.16s,
+    border 0.16s,
+    box-shadow 0.13s;
+  box-shadow: 0 1px 7px rgba(103, 165, 235, 0.07);
+}
+
+.review-card__delete:hover {
+  background: linear-gradient(90deg, #ff4665 70%, #B4A9FF 100%);
+  color: #fff;
+  border-color: #ff4665;
+  box-shadow: 0 2px 12px rgba(255, 70, 101, 0.18);
+}
+
+.review-card__edit-btn:hover {
+  background: linear-gradient(90deg, #67A5EB 70%, #B4A9FF 100%);
+  color: #222;
+  border-color: #67A5EB;
+}
+
+.review-card__edit-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  margin-top: 8px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1.2px solid #393959;
+  background: #272727;
+  color: #fff;
+  font-size: 14px;
+  transition: border 0.18s, background 0.18s;
+}
+
+.review-card__edit-textarea:focus {
+  border-color: #B4A9FF;
+  background: #23233a;
+}
+
+.review-card__save-btn {
+  /* margin-top: 10px; */
+  padding: 8px 19px;
+  background: linear-gradient(90deg, #2ecc71, #67A5EB 85%);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 8px rgba(46, 204, 113, 0.13);
+  transition: background 0.17s;
+}
+
+.review-card__save-btn:hover {
+  background: linear-gradient(90deg, #27ae60 70%, #67A5EB 100%);
+}
+.review-card__cancel-btn {
+  background: linear-gradient(90deg, #393959 60%, #222 100%);
+  border: 1.2px solid #393959;
+  color: #B4A9FF;
+  cursor: pointer;
+  border-radius: 9px;
+  font-size: 15px;
+  padding: 7px 19px;
+  font-weight: 600;
+  transition: background 0.16s, color 0.16s, border 0.16s, box-shadow 0.13s;
+  box-shadow: 0 1px 7px rgba(103, 165, 235, 0.07);
+}
+
+.review-card__cancel-btn:hover {
+  background: linear-gradient(90deg, #8e8ea6 80%, #393959 100%);
+  color: #fff;
+  border-color: #B4A9FF;
+}
+/* Селект-оценка */
+.review-card select {
+  margin-top: 10px;
+  padding: 7px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  background: #2c2c2c;
+  color: #B4A9FF;
+  border: 1.2px solid #393959;
+  transition: border 0.18s, background 0.18s;
+}
+
+.review-card select:focus {
+  border-color: #B4A9FF;
+  background: #23233a;
+}
+
+.profile__empty {
+  color: #777ea5;
+  background: #232323;
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 25px;
+  border: 1.2px solid #393959;
+}
+
+@media (max-width: 650px) {
+  .review-card {
+    padding: 11px 6px 11px 6px;
+    border-radius: 10px;
+  }
+
+  .review-card__image img {
+    width: 60px;
+    height: 84px;
+    border-radius: 5px;
+  }
+
+  .review-card__title {
+    font-size: 15px;
+    max-width: 140px;
+  }
+
+  .review-card__comment {
+    font-size: 13px;
+    padding: 5px 7px;
+  }
+
+  .review-card__delete,
+  .review-card__edit-btn,
+  .review-card__save-btn {
+    font-size: 13px;
+    padding: 6px 11px;
+    border-radius: 6px;
+  }
+}
+
+
+/* ===== Модальное окно подтверждения действия ===== */
+#confirm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.18s;
+}
+
+.confirm-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(22, 22, 30, 0.70);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.confirm-modal__content {
+  z-index: 2;
+  background: #24242b;
+  border: 2px solid #B4A9FF;
+  border-radius: 20px;
+  box-shadow: 0 0 60px 0 rgba(180, 169, 255, 0.18),
+    0 0 160px 0 rgba(121, 110, 255, 0.13);
+  padding: 38px 38px 28px 38px;
+  min-width: 330px;
+  max-width: 95vw;
+  text-align: center;
+  animation: modalAppear 0.33s cubic-bezier(.7, .15, .4, 1.22);
+  position: relative;
+}
+
+.confirm-modal__text {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 8px rgba(130, 110, 255, 0.11);
+}
+
+.confirm-modal__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.confirm-modal__btn {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 32px;
+  border-radius: 13px;
+  border: none;
+  cursor: pointer;
+  background: #262b41;
+  color: #B4A9FF;
+  box-shadow: 0 1px 8px rgba(180, 169, 255, 0.10);
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.confirm-modal__btn--yes {
+  background: linear-gradient(90deg, #ff4665 80%, #B4A9FF 100%);
+  color: #fff;
+  box-shadow: 0 2px 20px rgba(255, 70, 101, 0.12);
+}
+
+.confirm-modal__btn--yes:hover,
+.confirm-modal__btn--yes:focus {
+  background: linear-gradient(90deg, #ff4665 100%, #67A5EB 100%);
+  color: #fff;
+  box-shadow: 0 4px 28px rgba(255, 70, 101, 0.18);
+}
+
+.confirm-modal__btn--no {
+  background: #232333;
+  color: #B4A9FF;
+}
+
+.confirm-modal__btn--no:hover,
+.confirm-modal__btn--no:focus {
+  background: #313955;
+  color: #67A5EB;
+}
+
+@media (max-width: 480px) {
+  .confirm-modal__content {
+    padding: 18px 8px 14px 8px;
+    min-width: 90vw;
+    font-size: 16px;
+  }
+
+  .confirm-modal__btn {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .confirm-modal__text {
+    font-size: 16px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(22px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

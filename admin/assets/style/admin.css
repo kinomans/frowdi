@@ -1,0 +1,355 @@
+/* --- Подключение шрифта Play --- */
+@font-face {
+    font-family: 'Play';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/assets/fonts/Play-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Play';
+    font-weight: bold;
+    font-style: 700;
+    src: url('/assets/fonts/Play-Bold.woff') format('woff');
+}
+
+:root {
+    --background-main: linear-gradient(179deg, rgba(39, 135, 245, 0.18) 0%, rgba(163, 147, 245, 0.18) 100%), linear-gradient(180deg, #000 0%, rgba(39, 36, 36, 0.70) 100%);
+    --background-section: #23243b;
+    --background-card: #23243b;
+    --background-table: #393B3C;
+    --accent: #B4A9FF;
+    --accent-strong: #7B61FF;
+    --button-bg: #67A5EB;
+    --input-bg: #393B3C;
+    --border-main: 1.5px solid #393959;
+    --border-light: 1px solid #232333;
+    --text-main: #fff;
+    --text-light: #aaa;
+    --shadow-card: 0 4px 40px 0 rgba(52, 52, 52, 0.14), 0 1.5px 8px rgba(30, 30, 30, 0.10);
+    --radius: 18px;
+}
+
+/* === БАЗА === */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Play', Arial, sans-serif;
+    background: var(--background-main);
+    color: var(--text-main);
+    margin: 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+a:hover {
+    color: #FFD44D;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Play', Arial, sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+}
+
+/* === КОНТЕЙНЕРЫ === */
+.admin-container {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 48px 48px 48px 48px;
+    background: var(--background-section);
+    border-radius: 32px;
+    box-shadow: 0 4px 40px 0 rgba(123, 97, 255, 0.14), 0 1.5px 8px rgba(121, 110, 255, 0.13);
+    border: var(--border-main);
+}
+
+.admin-section__header {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.admin-breadcrumbs {
+    margin-bottom: 22px;
+    font-size: 17px;
+    color: var(--accent-strong);
+}
+
+.admin-breadcrumbs a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 8px;
+    transition: color .18s;
+}
+
+.admin-breadcrumbs a:hover {
+    color: #FFD44D;
+    text-decoration: underline;
+}
+
+/* === КНОПКИ === */
+.btn,
+.admin-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 12px;
+    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--button-bg), var(--accent));
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 12px rgba(123, 97, 255, 0.13);
+    margin-right: 6px;
+    margin-bottom: 2px;
+}
+
+.btn--primary,
+.admin-btn--primary {
+    background: linear-gradient(90deg, var(--accent-strong) 60%, var(--button-bg) 100%);
+}
+
+.btn--danger,
+.admin-btn--danger {
+    background: linear-gradient(90deg, #ff4665 70%, var(--accent) 100%);
+}
+
+.btn--small,
+.admin-btn--small {
+    font-size: 15px;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+.btn:hover,
+.admin-btn:hover {
+    background: linear-gradient(90deg, var(--accent) 90%, var(--button-bg) 100%);
+    color: #222;
+}
+
+/* === ТАБЛИЦА === */
+.admin-table {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--background-table);
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 36px;
+    box-shadow: 0 2px 14px rgba(180, 169, 255, 0.06);
+    border: var(--border-main);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 17px;
+    background: none;
+}
+
+.admin-table th {
+    background: linear-gradient(90deg, var(--accent-strong) 0%, var(--button-bg) 100%);
+    color: #fff;
+    border-bottom: var(--border-main);
+}
+
+.admin-table td img {
+    border-radius: 8px;
+    background: #222;
+    box-shadow: 0 2px 10px rgba(180, 169, 255, 0.06);
+    max-height: 60px;
+    max-width: 60px;
+}
+
+.admin-table tbody tr {
+    border-bottom: var(--border-light);
+    transition: background 0.14s;
+}
+
+.admin-table tbody tr:hover {
+    background: #322d52;
+}
+
+/* === ФОРМЫ === */
+.admin-form {
+    max-width: 540px;
+    margin: 0 auto 36px auto;
+    padding: 34px 28px;
+    background: #232333;
+    border-radius: 18px;
+    border: 1px solid #373737;
+    box-shadow: 0 2px 14px rgba(67, 145, 235, 0.09);
+}
+
+.admin-form label {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="url"],
+.admin-form input[type="file"],
+.admin-form input[type="email"],
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 8px;
+    background: var(--input-bg);
+    border: 1.5px solid #484868;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 9px rgba(180, 169, 255, 0.06);
+    transition: border .16s, background .18s;
+    outline: none;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+    border-color: var(--accent);
+    background: #393959;
+}
+
+.admin-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* === СООБЩЕНИЯ === */
+.admin-alert {
+    border-radius: 9px;
+    background: linear-gradient(90deg, #67A5EB55 0%, #9747FF55 100%);
+    padding: 13px 18px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 18px;
+    border: 1px solid #67A5EB;
+    box-shadow: 0 1px 8px rgba(67, 145, 235, 0.08);
+}
+
+.admin-alert--error {
+    background: linear-gradient(90deg, #ff4d6d88, #9747FF55);
+    border-color: #ff4d6d;
+}
+
+.admin-alert--success {
+    background: linear-gradient(90deg, #2787F5aa, #67A5EBaa);
+    border-color: #2787F5;
+}
+
+
+.admin-filter input[type="text"],
+.admin-filter select {
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    padding: 9px 14px;
+    border-radius: 7px;
+    border: 1px solid #444;
+}
+.admin-input{
+    margin-right: 16px;
+}
+.admin-filter button,
+.admin-filter .btn {
+    padding: 10px 22px;
+    border-radius: 9px;
+    background: linear-gradient(90deg, var(--button-bg), var(--accent));
+    color: #fff;
+    font-weight: 700;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--accent-strong);
+    width: 18px;
+    height: 18px;
+}
+
+/* === ПАГИНАЦИЯ === */
+.admin-pagination {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.admin-page-link {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 11px;
+    background: linear-gradient(90deg, var(--accent), var(--button-bg));
+    color: #fff;
+    font-weight: 700;
+    margin: 0 4px;
+    box-shadow: 0 2px 9px rgba(67, 145, 235, 0.06);
+    transition: background 0.18s, color 0.18s;
+}
+
+.admin-page-link.active,
+.admin-page-link:hover {
+    background: linear-gradient(90deg, var(--accent-strong), var(--accent));
+    color: #FFD44D;
+}
+
+/* === МЕДИА === */
+@media (max-width: 800px) {
+    .admin-container {
+        padding: 18px 4vw;
+        border-radius: 14px;
+    }
+
+    .admin-form {
+        padding: 14px 6vw;
+        border-radius: 11px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        font-size: 15px;
+        padding: 10px 6px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+
+/* === Превью изображений === */
+.img-preview {
+    max-width: 120px;
+    max-height: 120px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(151, 71, 255, 0.10);
+}
